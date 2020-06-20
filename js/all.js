@@ -10,6 +10,7 @@ addTodoBtn.addEventListener("click", function () {
   // input content != "" 才新增
   if (newTodo.value !== "") {
     addTodo();
+    newTodo.value = "";
   } else {
     console.log("newTodo content is empty");
   }
