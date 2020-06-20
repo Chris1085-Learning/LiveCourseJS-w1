@@ -1,9 +1,9 @@
 let todoData = [];
 
-let addTodoBtn = document.getElementById('addTodo');
-let newTodo = document.getElementById('newTodo');
-let clearTaskBtn = document.getElementById('clearTask');
-let todoList = document.getElementById('todoList');
+const addTodoBtn = document.getElementById('addTodo');
+const newTodo = document.getElementById('newTodo');
+const clearTaskBtn = document.getElementById('clearTask');
+const todoList = document.getElementById('todoList');
 
 //新增Btn click監聽事件
 addTodoBtn.addEventListener('click', function () {
@@ -30,7 +30,7 @@ clearTaskBtn.addEventListener('click', removeAllTodo);
 
 //Todo list ul 父元素監聽事件
 todoList.addEventListener('click', function (e) {
-	if (e.target.nodeName === 'INPUT') {
+	if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'LABEL') {
 		checkTodo(parseInt(e.target.getAttribute('data-id')));
 	}
 
@@ -40,7 +40,7 @@ todoList.addEventListener('click', function (e) {
 });
 
 function addTodo() {
-	let todo = document.getElementById('newTodo').value;
+	const todo = document.getElementById('newTodo').value;
 	// 定義資料
 	todoData.push({
 		id: Math.floor(Date.now()),
@@ -71,8 +71,8 @@ function removeAllTodo() {
 
 function render() {
 	let str = '';
-	let todoList = document.getElementById('todoList');
-	let taskCount = document.getElementById('taskCount');
+	const todoList = document.getElementById('todoList');
+	const taskCount = document.getElementById('taskCount');
 	todoData.forEach(function (item) {
 		// str參考網頁範例
 		str += `<li class="list-group-item">
